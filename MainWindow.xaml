@@ -1,0 +1,38 @@
+﻿<Window x:Class="PROG8145_Assignment4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG8145_Assignment4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="729.5" Width="1298.391" WindowState="Maximized" WindowStartupLocation="Manual" ResizeMode="CanMinimize">
+    <Grid>
+        <Label x:Name="lbTitle" Content="Making Appointment" HorizontalAlignment="Left" Margin="183,0,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="34" Width="192"/>
+        <Label x:Name="lbVehicle" Content="Vehicle" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,3.126" Height="25" Width="47"/>
+        <Label x:Name="lbTime" Content="Time" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="26" Width="36"/>
+        <Label x:Name="lbYear" Content="Making Year" HorizontalAlignment="Left" Margin="0,190,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Label x:Name="lbModel" Content="Model" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="26" Width="44"/>
+        <Label x:Name="lbTask" Content="Task" HorizontalAlignment="Left" Margin="10,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,3.41" Height="26" Width="32"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="10,512,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="btnSave_Click"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="210,512,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Height="25" RenderTransformOrigin="0.733,0.64" Click="btnClear_Click"/>
+        <Button x:Name="btnView" Content="View Schedule" HorizontalAlignment="Left" Margin="410,512,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2" Height="25" Click="btnView_Click"/>
+        <ComboBox x:Name="cbTime" HorizontalAlignment="Left" Margin="79,60,0,0" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2" DropDownClosed="cbTime_DropDownClosed" Height="22"/>
+        <ComboBox x:Name="cbVehicle" HorizontalAlignment="Left" Margin="79,125,0,0" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2" DropDownClosed="cbVehicle_DropDownClosed" Height="21"/>
+        <TextBox x:Name="tbYear" HorizontalAlignment="Left" Height="23" Margin="79,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2" LostFocus="tbYear_LostFocus"/>
+        <TextBox x:Name="tbBrand" HorizontalAlignment="Left" Height="23" Margin="79,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2" LostFocus="tbBrand_LostFocus"/>
+        <Label x:Name="lbBrand" Content="Brand" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top" Height="26" Width="41"/>
+        <TextBox x:Name="tbModel" HorizontalAlignment="Left" Height="23" Margin="79,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2" LostFocus="tbModel_LostFocus"/>
+        <ComboBox x:Name="cbTask" HorizontalAlignment="Left" Margin="79,385,0,0" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2" Height="22" DropDownOpened="cbTask_DropDownOpened" DropDownClosed="cbTask_DropDownClosed"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="648" Margin="550,60,0,-7.667" VerticalAlignment="Top" Width="743" Grid.Column="2">
+            <TextBlock x:Name="tblSchedule" HorizontalAlignment="Left" Margin="9,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="{x:Null}" FontSize="14"/>
+        </Border>
+        <Label x:Name="lbTimeErr" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="260,60,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="255" Height="26" Foreground="Red"/>
+        <Label x:Name="lbVehicleErr" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="260,125,0,0" VerticalAlignment="Top" Width="255" Grid.ColumnSpan="2" Height="26" Foreground="Red"/>
+        <Label x:Name="lbYearErr" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="260,190,0,0" VerticalAlignment="Top" Width="284" Grid.ColumnSpan="2" Height="26" Foreground="Red"/>
+        <Label x:Name="lbBrandErr" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="260,255,0,0" VerticalAlignment="Top" Width="255" Grid.ColumnSpan="2" Height="26" Foreground="Red"/>
+        <Label x:Name="lbModelErr" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="260,320,0,0" VerticalAlignment="Top" Width="255" Grid.ColumnSpan="2" Height="26" Foreground="Red"/>
+        <Label x:Name="lbTaskErr" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="260,385,0,0" VerticalAlignment="Top" Width="255" Grid.ColumnSpan="2" Height="26" Foreground="Red"/>
+        <Label x:Name="lbNotification" Content="" HorizontalAlignment="Left" Margin="160,462,0,0" VerticalAlignment="Top" Width="255" Foreground="Red"/>
+        <Label x:Name="lbSchedule" Content="Schedule" HorizontalAlignment="Left" Margin="880,0,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+    </Grid>
+</Window>
