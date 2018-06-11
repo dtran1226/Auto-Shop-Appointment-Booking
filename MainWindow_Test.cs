@@ -204,6 +204,7 @@ namespace PROG8145_Assignment4
             mainWindow.tbModel.Text = input[4];
             mainWindow.cbTask.Text = input[5];
             Assert.AreEqual(expectedResult, mainWindow.IsCheckedBeforeSave());
+            Console.Write("asd");
         }
     }
 }
