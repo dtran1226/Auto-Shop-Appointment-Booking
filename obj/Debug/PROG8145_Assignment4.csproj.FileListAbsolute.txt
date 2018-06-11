@@ -27,5 +27,3 @@ C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_A
 C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\obj\Debug\PROG8145_Assignment4.csproj.CoreCompileInputs.cache
 C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\obj\Debug\PROG8145_Assignment4.exe
 C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\obj\Debug\PROG8145_Assignment4.pdb
-C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\bin\Debug\nunit.framework.dll
-C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\bin\Debug\nunit.framework.xml

@@ -106,15 +106,7 @@ namespace PROG8145_Assignment4
 
         private void tbYear_LostFocus(object sender, RoutedEventArgs e)
         {
-            //Validate making year
-            int year = 0;
-            if (!int.TryParse(tbYear.Text, out year) || year < 1950 || year > 2018)
-            {
-                lbYearErr.Content = "Please input a making year between 1950-2018";
-            } else
-            {
-                lbYearErr.Content = "";
-            }
+            CheckYear();  
         }
 
         private void tbBrand_LostFocus(object sender, RoutedEventArgs e)
@@ -158,34 +150,7 @@ namespace PROG8145_Assignment4
 
         private void cbTask_DropDownOpened(object sender, EventArgs e)
         {
-            //Get a list of vehicle's tasks
-            List<string> tasks = new List<string>();
-            switch (cbVehicle.Text)
-            {
-                case nameof(Vehicles.Car):
-                    tasks = GetVehicleTasks();
-                    string task = "BodyTuneup";
-                    tasks.Add(task);
-                    break;
-                case nameof(Vehicles.Bus):
-                    tasks = GetVehicleTasks();
-                    string task1 = "ConstantInteriorCleanup";
-                    tasks.Add(task1);
-                    break;
-                case nameof(Vehicles.Truck):
-                    tasks = GetVehicleTasks();
-                    string task2 = "CoverInstallation";
-                    tasks.Add(task2);
-                    break;
-                case nameof(Vehicles.Tractor):
-                    tasks = GetVehicleTasks();
-                    string task3 = "PTOMaintenance";
-                    tasks.Add(task3);
-                    break;
-                default:
-                    break;
-            }
-            cbTask.ItemsSource = tasks;
+            FillInTasksList();
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
@@ -274,7 +239,7 @@ namespace PROG8145_Assignment4
             }
         }
 
-        private void DisplaySchedule()
+        public void DisplaySchedule()
         {
             FileStream fs = FileOpen("read");
             Schedule schedule = new Schedule();
@@ -329,33 +294,7 @@ namespace PROG8145_Assignment4
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            int year = 0;
-            //Check if all input are correct
-            if (cbTime.Text.Equals(""))
-            {
-                lbTimeErr.Content = "Please choose a time slot!";
-            }
-            else if (cbVehicle.Text.Equals(""))
-            {
-                lbVehicleErr.Content = "Please choose a vehicle!";
-            }
-            else if (!int.TryParse(tbYear.Text, out year) || year < 1950 || year > 2018)
-            {
-                lbYearErr.Content = "Please input a making year between 1950-2018";
-            }
-            else if (tbBrand.Text.Equals(""))
-            {
-                lbBrandErr.Content = "Please enter your vehicle's brand!";
-            }
-            else if (tbModel.Text.Equals(""))
-            {
-                lbModelErr.Content = "Please enter your vehicle's model!";
-            }
-            else if (cbTask.Text.Equals(""))
-            {
-                lbTaskErr.Content = "Please choose your vehicle's task!";
-            }
-            else
+            if (IsCheckedBeforeSave())
             {
                 SaveAppointment();
             }
@@ -365,6 +304,86 @@ namespace PROG8145_Assignment4
         {
             tblSchedule.Text = "";
             DisplaySchedule();
+        }
+
+        public bool IsCheckedBeforeSave()
+        {
+            int year = 0;
+            //Check if all input are correct
+            if (cbTime.Text.Equals(""))
+            {
+                lbTimeErr.Content = "Please choose a time slot!";
+                return false;
+            }
+            else if (cbVehicle.Text.Equals(""))
+            {
+                lbVehicleErr.Content = "Please choose a vehicle!";
+                return false;
+            }
+            else if (!int.TryParse(tbYear.Text, out year) || year < 1950 || year > 2018)
+            {
+                lbYearErr.Content = "Please input a making year between 1950-2018";
+                return false;
+            }
+            else if (tbBrand.Text.Equals(""))
+            {
+                lbBrandErr.Content = "Please enter your vehicle's brand!";
+                return false;
+            }
+            else if (tbModel.Text.Equals(""))
+            {
+                lbModelErr.Content = "Please enter your vehicle's model!";
+                return false;
+            }
+            else if (cbTask.Text.Equals(""))
+            {
+                lbTaskErr.Content = "Please choose your vehicle's task!";
+                return false;
+            }
+            return true;
+        }
+
+        public void FillInTasksList()
+        {
+            List<string> tasks = new List<string>();
+            switch (cbVehicle.Text)
+            {
+                case nameof(Vehicles.Car):
+                    tasks = GetVehicleTasks();
+                    string task = "BodyTuneup";
+                    tasks.Add(task);
+                    break;
+                case nameof(Vehicles.Bus):
+                    tasks = GetVehicleTasks();
+                    string task1 = "ConstantInteriorCleanup";
+                    tasks.Add(task1);
+                    break;
+                case nameof(Vehicles.Truck):
+                    tasks = GetVehicleTasks();
+                    string task2 = "CoverInstallation";
+                    tasks.Add(task2);
+                    break;
+                case nameof(Vehicles.Tractor):
+                    tasks = GetVehicleTasks();
+                    string task3 = "PTOMaintenance";
+                    tasks.Add(task3);
+                    break;
+                default:
+                    break;
+            }
+            cbTask.ItemsSource = tasks;
+        }
+        
+        public void CheckYear()
+        {
+            if (!int.TryParse(tbYear.Text, out int year) || year < 1950 || year > 2018)
+            {
+                lbYearErr.Content = "Please input a making year between 1950-2018";
+            }
+            else
+            {
+                lbYearErr.Content = "";
+            }
         }
     }
 }

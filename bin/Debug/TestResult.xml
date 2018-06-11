@@ -1,21 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\bin\Debug\PROG8145_Assignment4.exe" total="4" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-05-28" time="18:15:50">
-  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8830" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="DESKTOP-25KCSKU" user="thuct" user-domain="DESKTOP-25KCSKU" />
+<test-results name="C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\bin\Debug\PROG8145_Assignment4.exe" total="18" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-06-11" time="11:57:59">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8922" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="DESKTOP-25KCSKU" user="thuct" user-domain="DESKTOP-25KCSKU" />
   <culture-info current-culture="en-CA" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\bin\Debug\PROG8145_Assignment4.exe" executed="True" result="Success" success="True" time="0.030" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\thuct\Downloads\Visual_Studio\SDT\PROG8145_Assignment4_Dtran\PROG8145_Assignment4\bin\Debug\PROG8145_Assignment4.exe" executed="True" result="Success" success="True" time="1.663" asserts="0">
     <results>
-      <test-suite type="Namespace" name="PROG8145_Assignment4" executed="True" result="Success" success="True" time="0.030" asserts="0">
+      <test-suite type="Namespace" name="PROG8145_Assignment4" executed="True" result="Success" success="True" time="1.656" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="TestMainWindow" executed="True" result="Success" success="True" time="0.030" asserts="0">
+          <test-suite type="TestFixture" name="TestMainWindow" executed="True" result="Success" success="True" time="1.655" asserts="0">
             <properties>
               <property name="APARTMENT_STATE" value="STA" />
             </properties>
             <results>
-              <test-case name="PROG8145_Assignment4.TestMainWindow.TestClearAll" executed="True" result="Success" success="True" time="0.004" asserts="12" />
-              <test-case name="PROG8145_Assignment4.TestMainWindow.TestExtractTimeSlots" executed="True" result="Success" success="True" time="0.002" asserts="2" />
-              <test-case name="PROG8145_Assignment4.TestMainWindow.TestGetVehicleTasks" executed="True" result="Success" success="True" time="0.002" asserts="3" />
-              <test-case name="PROG8145_Assignment4.TestMainWindow.TestSaveAppointment" executed="True" result="Success" success="True" time="0.010" asserts="16" />
+              <test-suite type="ParameterizedTest" name="CheckYear_InputYear_ShowExpectedErrorMessage" executed="True" result="Success" success="True" time="1.433" asserts="0">
+                <results>
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.CheckYear_InputYear_ShowExpectedErrorMessage(&quot;1940&quot;,&quot;Please input a making year between 1950-2018&quot;)" executed="True" result="Success" success="True" time="1.412" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.CheckYear_InputYear_ShowExpectedErrorMessage(&quot;1980&quot;,&quot;&quot;)" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.CheckYear_InputYear_ShowExpectedErrorMessage(&quot;2019&quot;,&quot;Please input a making year between 1950-2018&quot;)" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.CheckYear_InputYear_ShowExpectedErrorMessage(&quot;asd&quot;,&quot;Please input a making year between 1950-2018&quot;)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="FillInTasksList_InputVehicle_ReturnExpectedResult" executed="True" result="Success" success="True" time="0.088" asserts="0">
+                <results>
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.FillInTasksList_InputVehicle_ReturnExpectedResult(&quot;Car&quot;,&quot;OilChange&quot;,&quot;EngineTuneup&quot;,&quot;TransmissionCleanup&quot;,&quot;BodyTuneup&quot;)" executed="True" result="Success" success="True" time="0.076" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.FillInTasksList_InputVehicle_ReturnExpectedResult(&quot;Bus&quot;,&quot;OilChange&quot;,&quot;EngineTuneup&quot;,&quot;TransmissionCleanup&quot;,&quot;ConstantInteriorCleanup&quot;)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.FillInTasksList_InputVehicle_ReturnExpectedResult(&quot;Truck&quot;,&quot;OilChange&quot;,&quot;EngineTuneup&quot;,&quot;TransmissionCleanup&quot;,&quot;CoverInstallation&quot;)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.FillInTasksList_InputVehicle_ReturnExpectedResult(&quot;Tractor&quot;,&quot;OilChange&quot;,&quot;EngineTuneup&quot;,&quot;TransmissionCleanup&quot;,&quot;PTOMaintenance&quot;)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="IsCheckedBeforeSave_InputText_ShowExpectedErrorMessage" executed="True" result="Success" success="True" time="0.014" asserts="0">
+                <results>
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.IsCheckedBeforeSave_InputText_ShowExpectedErrorMessage(True,&quot;t1000&quot;,&quot;car&quot;,&quot;1960&quot;,&quot;nissan&quot;,&quot;n3&quot;,&quot;cleanup&quot;)" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.IsCheckedBeforeSave_InputText_ShowExpectedErrorMessage(False,&quot;t2000&quot;,&quot;&quot;,&quot;&quot;,&quot;1943&quot;,&quot;&quot;,&quot;&quot;)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="PROG8145_Assignment4.TestMainWindow.IsCheckedBeforeSave_InputText_ShowExpectedErrorMessage(False,&quot;&quot;,&quot;bus&quot;,&quot;&quot;,&quot;hyundai&quot;,&quot;n5&quot;,&quot;&quot;)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                </results>
+              </test-suite>
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestClearAll" executed="True" result="Success" success="True" time="0.012" asserts="12" />
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestDisplaySchedule" executed="True" result="Success" success="True" time="0.018" asserts="1" />
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestExtractTimeSlots" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestFileOpen" executed="True" result="Success" success="True" time="0.009" asserts="6" />
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestGetVehicleTasks" executed="True" result="Success" success="True" time="0.010" asserts="3" />
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestGo" executed="True" result="Success" success="True" time="0.006" asserts="4" />
+              <test-case name="PROG8145_Assignment4.TestMainWindow.TestSaveAppointment" executed="True" result="Success" success="True" time="0.011" asserts="16" />
             </results>
           </test-suite>
         </results>
