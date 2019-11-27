@@ -18,23 +18,24 @@ using System.IO;
 
 namespace PROG8145_Assignment4
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    // List of timeslots
     enum TimeSlots
     {
         t1000, t1030, t1100, t1130, t1200, t1230, t1300, t1330, t1400, t1430, t1500, t1530, t1600
     }
+    // List of vehicles
     enum Vehicles
     {
         Car, Bus, Truck, Tractor
     }
+    // List of tasks
     enum Tasks
     {
         OilChange, EngineTuneup, TransmissionCleanup
     }
     public partial class MainWindow : Window
     {
+        // Number of saved appointments
         public int numOfApps = 0;
         public List<string> timeSlots = new List<string>();
         public MainWindow()
@@ -45,28 +46,31 @@ namespace PROG8145_Assignment4
 
         public void Go()
         {
-            //Get a list of timeslots from enum
+            // Get a list of timeslots from enum
             var enumTimeSlots = Enum.GetValues(typeof(TimeSlots));
             string timeSlot = String.Empty;
+            // Extract timeslots from enum to proper format
             for (int i = 0; i < enumTimeSlots.Length; i++)
             {
                 timeSlot = enumTimeSlots.GetValue(i).ToString();
                 timeSlot = ExtractTimeSlot(timeSlot);
                 timeSlots.Add(timeSlot);
             }
+            // Fill timeslots to combo box
             cbTime.ItemsSource = timeSlots;
             //Get a list of vehicles from enum
             var vehicles = Enum.GetValues(typeof(Vehicles));
+            // Fill vehicles to combo box
             cbVehicle.ItemsSource = vehicles;
         }
-
+        // Extract timeslots to hh:mm format
         public string ExtractTimeSlot(string timeSlot)
         {
             string strHour = timeSlot.Substring(1, 2);
             string strMinute = timeSlot.Substring(timeSlot.Length - 2, 2);
             return strHour + ":" + strMinute;
         }
-
+        // Extract tasks list from enum
         public List<string> GetVehicleTasks()
         {
             var tasks = Enum.GetValues(typeof(Tasks));
@@ -78,7 +82,7 @@ namespace PROG8145_Assignment4
             }
             return tasksList;
         }
-
+        // Validate timeslot every time the timeslots drop down list closed
         private void cbTime_DropDownClosed(object sender, EventArgs e)
         {
             //Validate time slot
@@ -90,7 +94,7 @@ namespace PROG8145_Assignment4
                 lbTimeErr.Content = "";
             }
         }
-
+        // Validate vehicle every time the vehicles drop down list closed
         private void cbVehicle_DropDownClosed(object sender, EventArgs e)
         {
             //Validate vehicle
@@ -103,12 +107,12 @@ namespace PROG8145_Assignment4
                 lbVehicleErr.Content = "";
             }
         }
-
+        // Validate input year every time the year text box lost focus
         private void tbYear_LostFocus(object sender, RoutedEventArgs e)
         {
             CheckYear();  
         }
-
+        // Validate input brand every time the brand text box lost focus
         private void tbBrand_LostFocus(object sender, RoutedEventArgs e)
         {
             //Validate brand
@@ -121,7 +125,7 @@ namespace PROG8145_Assignment4
                 lbBrandErr.Content = "";
             }
         }
-
+        // Validate input model every time the model text box lost focus
         private void tbModel_LostFocus(object sender, RoutedEventArgs e)
         {
             //Validate model
@@ -134,7 +138,7 @@ namespace PROG8145_Assignment4
                 lbModelErr.Content = "";
             }
         }
-
+        // Validate task every time the tasks drop down list closed
         private void cbTask_DropDownClosed(object sender, EventArgs e)
         {
             //Validate task
@@ -147,12 +151,12 @@ namespace PROG8145_Assignment4
                 lbTaskErr.Content = "";
             }
         }
-
+         // Fill in tasks list every time the tasks drop down list opened
         private void cbTask_DropDownOpened(object sender, EventArgs e)
         {
             FillInTasksList();
         }
-
+        // Clear all input data when click Clear button
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             ClearAll();
@@ -169,7 +173,7 @@ namespace PROG8145_Assignment4
             tbModel.Text = "";
             cbTask.Text = "";
         }
-
+        // Open 'schedule.txt' file in Database folder
         public FileStream FileOpen(string mode)
         {
             string directory = @"..\..\Database";
@@ -209,7 +213,7 @@ namespace PROG8145_Assignment4
             }
             return fs;
         }
-
+        // Save all information about an appointment to 'schedule.txt' file
         public void SaveAppointment()
         {
             FileStream fs = FileOpen("write");
@@ -223,10 +227,14 @@ namespace PROG8145_Assignment4
                 bw.Write(tbModel.Text);
                 bw.Write(cbTask.Text);
                 bw.Close();
+                // Increase number of saved appointment by 1
                 numOfApps++;
+                // Remove reserved timeslot of saved appointment from timeslots list
                 timeSlots.Remove(cbTime.Text);
+                // Refill timeslots after removing to timeslots combo box
                 cbTime.ItemsSource = new List<string>();
                 cbTime.ItemsSource = timeSlots;
+                // Clear all input
                 ClearAll();
                 lbNotification.Foreground = Brushes.Blue;
                 lbNotification.Content = "Appointment is saved successfully";
@@ -238,7 +246,7 @@ namespace PROG8145_Assignment4
                 fs.Close();
             }
         }
-
+        // Get all saved appointment from 'schedule.txt' file to display
         public void DisplaySchedule()
         {
             FileStream fs = FileOpen("read");
@@ -291,7 +299,7 @@ namespace PROG8145_Assignment4
                 fs.Close();
             }
         }
-
+        // Save appointment when clicking 'Save' button
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (IsCheckedBeforeSave())
@@ -299,13 +307,13 @@ namespace PROG8145_Assignment4
                 SaveAppointment();
             }
         }
-
+        // Display list of saved appointment when clicking 'View' button
         private void btnView_Click(object sender, RoutedEventArgs e)
         {
             tblSchedule.Text = "";
             DisplaySchedule();
         }
-
+        // Check all input fields before saving an appointment
         public bool IsCheckedBeforeSave()
         {
             int year = 0;
@@ -342,7 +350,7 @@ namespace PROG8145_Assignment4
             }
             return true;
         }
-
+        // Fill in suitable tasks of a specific chosen vehicle into tasks combo box
         public void FillInTasksList()
         {
             List<string> tasks = new List<string>();
@@ -373,7 +381,7 @@ namespace PROG8145_Assignment4
             }
             cbTask.ItemsSource = tasks;
         }
-        
+        // Check if input year is valid
         public void CheckYear()
         {
             if (!int.TryParse(tbYear.Text, out int year) || year < 1950 || year > 2018)
